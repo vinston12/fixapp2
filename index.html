@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated Page</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixApp Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400&family=Open+Sans:wght@400&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <style id="sections-styles">
+/* CSS for section section:header */
+.header-hero-section {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  .header-bg-decore {
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    z-index: -1;
+    width: 766px;
+    pointer-events: none;
+  }
+  .main-header {
+    background: rgba(255, 255, 255, 0.26);
+    backdrop-filter: blur(2px);
+    padding: 10px 0;
+  }
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  .main-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .main-nav a.active {
+    background-color: var(--bg-white);
+    color: #030000;
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .btn-join {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .lang-flag {
+    width: 28px;
+  }
+  .hero-content {
+    margin-top: 100px;
+  }
+  .hero-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .hero-text {
+    flex: 1;
+    max-width: 550px;
+  }
+  .tagline {
+    color: var(--secondary-orange);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .hero-text h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--dark-blue);
+    margin: 16px 0;
+    letter-spacing: -2.56px;
+  }
+  .hero-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 30px;
+  }
+  .hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  .hero-rating span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    color: var(--dark-blue);
+  }
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+  }
+  .hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    margin-top: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1024px) {
+    .main-nav { display: none; }
+    .hero-container { flex-direction: column; text-align: center; }
+    .hero-text { max-width: 100%; }
+    .hero-cta, .hero-rating { justify-content: center; }
+    .hero-image-wrapper { margin-top: 1px; }
+    .hero-text h1 { font-size: 48px; }
+  }
+  @media (max-width: 768px) {
+    .header-actions { display: none; }
+    .header-container { justify-content: center; }
+    .hero-text h1 { font-size: 36px; }
+    .hero-text p { font-size: 14px; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .subscribe-box { margin-right: 0 !important; }
+  }
+
+/* CSS for section section:partners */
+.partners-section {
+    padding: 40px 0;
+    background: var(--bg-white);
+  }
+  .partners-divider {
+    height: 2px;
+    background-color: var(--secondary-orange);
+    margin-bottom: 20px;
+  }
+  .partners-title {
+    text-align: center;
+    color: var(--secondary-orange);
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    margin: 0 0 30px 0;
+  }
+  .partners-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .partners-logos img {
+    height: 53px;
+    object-fit: contain;
+  }
+  .logo-placeholder {
+    width: 135px;
+    height: 60px;
+    background-color: #d9d9d9;
+  }
+
+/* CSS for section section:features */
+.features-section {
+    background-image: linear-gradient(to bottom, var(--dark-blue) 0%, var(--dark-blue) 50%, var(--bg-white) 0%, var(--bg-white) 100%);
+    color: var(--bg-white);
+    padding: 100px 5px;
+  }
+  .features-header {
+    max-width: 600px;
+    margin-bottom: 60px;
+  }
+  .features-header h2 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+  }
+  .features-header p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    direction: rtl;
+  }
+  .feature-card {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 2px rgba(24, 30, 75, 0.1);
+    direction: ltr;
+  }
+  .feature-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+  }
+  .feature-card .highlight-orange {
+    color: var(--secondary-orange);
+  }
+  .feature-card p {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .features-header h2 { font-size: 36px; }
+  }
+
+/* CSS for section section:trust */
+.trust-section {
+    padding: 100px 0;
+  }
+  .trust-container {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+  .trust-text {
+    flex-basis: 35%;
+  }
+  .trust-text h2 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--dark-blue);
+    margin: 0 0 20px 0;
+  }
+  .trust-text .highlight-blue {
+    color: var(--primary-blue);
+  }
+  .trust-text > p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--dark-blue);
+  }
+  .trust-timeline {
+    flex-basis: 65%;
+  }
+  .trust-timeline ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .trust-timeline ul::before {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background-color: var(--primary-orange);
+    border-radius: 5px;
+    transform: translateX(-50%);
+  }
+  .trust-timeline li {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    position: relative;
+  }
+  .trust-timeline li:not(:last-child) {
+    margin-bottom: 60px;
+  }
+  .timeline-icon {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .timeline-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+  }
+  .timeline-content p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+  }
+  @media (max-width: 992px) {
+    .trust-container { flex-direction: column; text-align: center; }
+    .trust-text { margin-bottom: 40px; }
+    .trust-timeline ul::before { left: 50%; }
+    .trust-timeline li { flex-direction: column; align-items: center; text-align: center; }
+  }
+
+/* CSS for section section:testimonials */
+.testimonials-section {
+    padding: 100px 0;
+  }
+  .testimonials-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+  .testimonials-text {
+    flex-basis: 40%;
+  }
+  .testimonials-text h2 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #14183e;
+    margin: 0 0 20px 0;
+  }
+  .testimonials-cards {
+    flex-basis: 60%;
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .testimonial-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-right: 48px;
+  }
+  .testimonial-card.card-front {
+    background: #fff;
+    box-shadow: 0px 4px 16px 2px rgba(24, 30, 75, 0.18);
+    z-index: 2;
+    transform: translate(0, 0);
+    border-radius: 10px;
+    padding: 30px;
+    opacity: 1;
+  }
+  .testimonial-card.card-back {
+    background: #f0f5ff;
+    box-shadow: 0px 2px 8px 1px rgba(24, 30, 75, 0.08);
+    z-index: 1;
+    transform: translate(32px, 32px) scale(0.96);
+    border-radius: 10px;
+    padding: 30px;
+    opacity: 0.8;
+  }
+  .testimonial-arrows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+  .arrow-up, .arrow-down {
+    font-size: 18px;
+    color: #222;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+  }
+  .arrow-up:hover, .arrow-down:hover {
+    color: var(--primary-blue);
+  }
+  .card-back {
+    background-color: var(--bg-light-blue);
+    top: 65px;
+    left: 0;
+    z-index: 1;
+  }
+  .card-front {
+    background-color: var(--bg-white);
+    top: 0;
+    left: -40px;
+    z-index: 2;
+  }
+  .author-image {
+    position: absolute;
+    top: -34px;
+    left: -34px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+  }
+  .testimonial-card .quote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-light);
+    margin: 0 0 20px 0;
+  }
+  .card-back .quote {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .author-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin: 0;
+  }
+  .author-location {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+    margin: 5px 0 0 0;
+  }
+  .pagination-dots {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @media (max-width: 992px) {
+    .testimonials-container { flex-direction: column; text-align: center; }
+    .testimonials-text { margin-bottom: 40px; }
+    .testimonials-cards { width: 100%; max-width: 500px; margin: 0 auto; }
+    .card-front { left: 0; width: 100%; padding: 16px; }
+    .testimonial-card { width: 100%; padding: 16px; }
+    .testimonial-card .quote { font-size: 14px; }
+    .card-back { display: none; }
+    .pagination-dots { display: none; }
+    .hero-content { margin-top: 0px;}
+  }
+
+/* CSS for section section:control */
+.control-section {
+    padding: 100px 0;
+    background-color: rgba(248, 147, 26, 0.05);
+    text-align: center;
+  }
+  .control-section h2 {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--secondary-orange);
+    margin: 0 0 20px 0;
+  }
+  .subtitle {
+    font-size: 24px;
+    color: var(--secondary-orange);
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+  }
+  .control-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .control-item {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 24px;
+    color: var(--secondary-orange);
+    text-align: left;
+  }
+  .stars-group-1, .stars-group-2 {
+    display: flex;
+    gap: 4px;
+    position: absolute;
+  }
+  .stars-group-1 {
+    top: 60%;
+    right: 10%;
+  }
+  .stars-group-2 {
+    top: 80%;
+    left: 10%;
+    opacity: 0.5;
+  }
+  @media (max-width: 992px) {
+    .stars-group-1, .stars-group-2 { display: none; }
+    .control-section h2 { font-size: 36px; }
+    .subtitle, .control-item { font-size: 18px; }
+    .trust-timeline ul::before {
+      width: 0px;
+    }
+  }
+
+/* CSS for section section:availability */
+.availability-section {
+    padding: 100px 0;
+    background-image: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-white) 30%, #eaf1ff 0%, #eaf1ff 100%);
+  }
+  .availability-header {
+    max-width: 800px;
+  }
+  .availability-header h2 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--dark-blue);
+    margin: 0 0 20px 0;
+    padding-bottom: 20px;
+
+  }
+  .availability-header .highlight-blue {
+    color: var(--primary-blue);
+  }
+  .availability-header p {
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--dark-blue);
+  }
+  .availability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  .availability-card {
+    background-color: var(--bg-white);
+    border: 6px solid var(--primary-blue);
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    min-height: 270px;
+  }
+  .card-bg-icon {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .availability-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin: 0 0 15px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .availability-card p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-blue);
+    line-height: 1.5;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 768px) {
+    .availability-header h2 { font-size: 36px; }
+    .availability-header p { font-size: 18px; }
+  }
+
+/* CSS for section section:subscribe */
+.subscribe-section {
+    padding: 100px 0;
+  }
+  .subscribe-section > .container > h2 {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--secondary-orange);
+    margin: 0 auto 60px 0px;
+    max-width: 950px;
+    line-height: 1.3;
+  }
+  .subscribe-box {
+    background-color: var(--bg-light-blue);
+    border-radius: 129px 20px 20px 20px;
+    padding: 60px 30px 60px 60px;
+    text-align: center;
+    position: relative;
+    margin-right: 30px;
+  }
+  .send-icon-wrapper {
+    position: absolute;
+    top: -35px;
+    right: -10px;
+    width: 70px;
+    height: 70px;
+  }
+  .send-icon-bg {
+    width: 100%;
+    height: 100%;
+  }
+  .send-icon-plane {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    width: 45px;
+  }
+  .subscribe-box h3 {
+    font-size: 33px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin: 0 0 20px 0;
+  }
+  .subscribe-box p {
+    font-size: 24px;
+    color: var(--primary-blue);
+    margin: 0 0 40px 0;
+  }
+  .subscribe-box .highlight-orange {
+    color: var(--secondary-orange);
+  }
+  .subscribe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .email-input-wrapper {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 350px;
+  }
+  .email-input-wrapper input {
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    width: 100%;
+  }
+  .subscribe-form .btn {
+    padding: 22px 40px;
+  }
+  @media (max-width: 768px) {
+    .subscribe-section > .container > h2 { font-size: 32px; }
+    .subscribe-box { padding: 40px 20px; border-radius: 20px; }
+    .send-icon-wrapper { top: -25px; right: 10px; width: 50px; height: 50px; }
+    .send-icon-plane { width: 30px; }
+    .subscribe-box h3 { font-size: 24px; }
+    .subscribe-box p { font-size: 18px; }
+    .email-input-wrapper { min-width: 100%; }
+    .hero-content { margin-top: 0px;}
+    .testimonials-section {
+    padding: 10px 0;
+  }
+  .subscribe-box { margin-right: 0 !important; }
+  }
+
+/* CSS for section section:footer */
+.site-footer {
+    background-color: var(--dark-blue);
+    padding: 60px 0;
+  }
+  .site-footer p {
+    margin: 0;
+    text-align: center;
+  }
+  .footer-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--bg-white);
+    margin-right: 15px;
+  }
+  .footer-email {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-orange);
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    .site-footer .container p {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-label, .footer-email {
+      font-size: 18px;
+    }
+  }
+  </style>
+  <script src="global.js" defer></script>
+</head>
+<body>
+<section id="section-header" class="header-hero-section">
+  <img src="images/1_551.svg" alt="Decorative background shape" class="header-bg-decore">
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#" class="logo">FixApp</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#" class="active">Jak działa</a></li>
+          <li><a href="#">Dla klientów</a></li>
+          <li><a href="#">Dla fachowców</a></li>
+          <li><a href="#">Cennik</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="#subscribe-box" class="btn-join">Dołącz za darmo</a>
+        <div class="lang-selector">
+          <img src="images/1adf2e6dc9d4f089ffa812bc6fe121f072a348b0.png" alt="Poland flag" class="lang-flag">
+          <span>PL</span>
+          <img src="images/1_145.svg" alt="Dropdown arrow" class="lang-arrow">
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="hero-content">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <span class="tagline">NIEZAWODNE USŁUGI LOKALNE.</span>
+        <h1>Zweryfikowani fachowcy. Bezpieczne płatności.</h1>
+        <p>Znajdź sprawdzonego specjalistę w 10 minut. Przeglądaj profile, porównuj ceny i zamawiaj bezpośrednio przez aplikację. FixApp to najprostszy sposób na szybką i bezpieczną naprawę – kiedy tylko jej potrzebujesz.</p>
+        <div class="hero-cta">
+          <a href="#subscribe-box" class="btn btn-primary">Znajdź Fachowca</a>
+          <a href="#" class="btn btn-secondary">Zostań Fachowcem</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="images/d294d98012f41a1b621a91223c95153f2a359427.png" alt="Handyman with tools" class="hero-image">
+      </div>
+      
+    </div>
+  </div>
+</section>
+<section id="section-partners" class="partners-section">
+  <div class="container">
+    <div class="partners-divider"></div>
+    <p class="partners-title">Zaufali nam</p>
+    <div class="partners-logos">
+      <img src="images/641244157e5ad75e854273d55b547cb3017f2880.png" alt="Innovations Hub Foundation Logo">
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+    </div>
+  </div>
+</section>
+<section id="section-features" class="features-section">
+  <div class="container">
+    <div class="features-header">
+      <h2>Szybko, bezpiecznie, bez stresu.</h2>
+      <p>FixApp to wygoda, której do tej pory brakowało na rynku usług domowych.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>ZLECENIA W <span class="highlight-orange">MNIEJ NIŻ 5 MINUT</span></h3>
+        <p>W aplikacji, bez potrzeby rozmów telefonicznych czy spisywania danych</p>
+      </div>
+      <div class="feature-card">
+        <h3>SPRAWDZENI FACHOWCY <span class="highlight-orange">W TWOJEJ OKOLICY</span></h3>
+        <p>Nasz system geo lokalizacji pokaże Ci dostępnych specjalistów w promieniu kilku kilometrów, gotowych do działania</p>
+      </div>
+      <div class="feature-card">
+        <h3>PRZEJRZYSTE CENY <span class="highlight-orange">BEZ UKRYTYCH KOSZTÓW</span></h3>
+        <p>Każda usługa ma jasno określony zakres i widełki cenowe, zanim jeszcze klikniesz "Zamawiam".</p>
+      </div>
+      <div class="feature-card">
+        <h3>REZERWUJESZ <span class="highlight-orange">KIEDY CHCESZ</span></h3>
+        <p>Integracja z kalendarzem pozwala wybrać termin, który naprawdę Ci pasuje</p>
+      </div>
+      <div class="feature-card">
+        <h3>USŁUGI, KTÓRYM <span class="highlight-orange">MOŻESZ ZAUFAĆ</span></h3>
+        <p>Oceniani fachowcy i pełna historia zleceń to koniec nieprzyjemnych niespodzianek.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section-trust" class="trust-section">
+  <div class="container trust-container">
+    <div class="trust-text">
+      <h2><span class="highlight-blue">Zaufanie</span>, które działa.</h2>
+      <p>FixApp stawia na rzetelność i bezpieczeństwo</p>
+    </div>
+    <div class="trust-timeline">
+      <ul>
+        <li>
+          <div class="timeline-icon"><img src="images/2708_11078.svg" alt="Verification icon"></div>
+          <div class="timeline-content">
+            <h3>Zweryfikowani fachowcy</h3>
+            <p>Każdy wykonawca przechodzi proces weryfikacji tożsamości, dokumentów oraz doświadczenia zawodowego.</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-icon"><img src="images/2708_11605.svg" alt="Rating system icon"></div>
+          <div class="timeline-content">
+            <h3>System ocen po każdym zleceniu</h3>
+            <p>Tylko fachowcy z wysokimi notami są wysoko w wynikach. Słabe usługi? Nie mają tu racji bytu.</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-icon"><img src="images/2708_13724.svg" alt="Transparency icon"></div>
+          <div class="timeline-content">
+            <h3>Transparentność to nasz standard</h3>
+            <p>Żadnych ukrytych kosztów ani prowizji po cichu. Wszystko jest jasne, zanim potwierdzisz usługę.</p>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-icon"><img src="images/2708_13193.svg" alt="24/7 support icon"></div>
+          <div class="timeline-content">
+            <h3>Pomoc techniczna 24/7</h3>
+            <p>Czat, infolinia i e-mail – jesteśmy dostępni, gdy tylko czegoś potrzebujesz.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="section-testimonials" class="testimonials-section">
+  <div class="container testimonials-container">
+    <div class="testimonials-text">
+      <h2>Konsumenci mówią sami za siebie.</h2>
+      <img src="images/1_414.svg" alt="Decorative underline">
+    </div>
+    <div class="testimonials-cards">
+      <div class="testimonial-card card-back">
+        <img src="images/az123.jpg" alt="Adam Kowalski" class="author-image">
+        <p class="quote">"Awaria pralki w sobotę? Fachowiec był u mnie po 3 godzinach. Nigdy więcej nie będę szukać usług przez ogłoszenia."</p>
+        <div class="author">
+          <p class="author-name">Adam Kowalski</p>
+          <p class="author-location">Katowice</p>
+        </div>
+      </div>
+      <div class="testimonial-card card-front">
+        <img src="images/1_427.svg" alt="Mike Tyson" class="author-image">
+        <p class="quote">“Wszystko jak w Uberze, ale dla fachowców. Super pomysł – działa błyskawicznie.”</p>
+        <div class="author">
+          <p class="author-name">Karol Wierzbicki</p>
+          <p class="author-location">Kraków</p>
+        </div>
+      </div>
+      <div class="testimonial-arrows">
+        <button class="arrow-up" aria-label="Poprzednia opinia">▲</button>
+        <button class="arrow-down" aria-label="Następna opinia">▼</button> 
+  </div>
+</section>
+<section id="section-control" class="control-section">
+  <div class="container">
+    <h2>To Ty masz kontrolę</h2>
+    <p class="subtitle">Zbudowaliśmy FixApp tak, byś miał kontrolę i bezpieczeństwo na każdym kroku.</p>
+    <div class="control-list">
+      <div class="control-item">Pracujemy jedynie z najlepszymi profesjonalistami.</div>
+      <div class="control-item">Masz możliwość zgłoszenia reklamacji w aplikacji.</div>
+      <div class="control-item">Masz wpływ na jakość usług – Twoja opinia nie trafia w próżnię.</div>
+    </div>
+  </div>
+ 
+</section>
+<section id="section-availability" class="availability-section">
+  <div class="container">
+    <div class="availability-header">
+      <h2>Potrzebujesz kogoś na dziś? <br><span class="highlight-blue">Nie ma problemu.</span></h2>
+      <p>Z FixApp nie musisz planować napraw z wyprzedzeniem – nasi fachowcy mają elastyczne grafiki i są gotowi działać, gdy tylko tego potrzebujesz.</p>
+    </div>
+    <div class="availability-grid">
+      <div class="availability-card">
+        <img src="images/2720_9392.svg" class="card-bg-icon" alt="">
+        <h3>Termin nawet tego samego dnia</h3>
+        <p>Dostępność w czasie rzeczywistym, również wieczorami i w weekendy.</p>
+      </div>
+      <div class="availability-card">
+        <img src="images/2725_10441.svg" class="card-bg-icon" alt="">
+        <h3>Dopasuj wizytę do swojego planu</h3>
+        <p>Ty wybierasz dzień i godzinę, a my znajdziemy wolnego fachowca.</p>
+      </div>
+      <div class="availability-card">
+        <img src="images/2725_11494.svg" class="card-bg-icon" alt="">
+        <h3>Najlepsi fachowcy znikają jako pierwsi</h3>
+        <p>Zrób to, zanim będzie za późno.</p>
+      </div>
+      <div class="availability-card">
+        <img src="images/2725_12551.svg" class="card-bg-icon" alt="">
+        <h3>Zniżka powitalna</h3>
+        <p>Zostaw coś po sobie i skorzystaj z rabatu na pierwszą usługę. Formularz gwarantujący zniżkę znajdziesz poniżej.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section-subscribe" class="subscribe-section">
+  <div class="container">
+    <h2>Samo się nie naprawi! <br>Zainstaluj FixApp i zrób to po swojemu.</h2>
+    <div class="subscribe-box" id="subscribe-box">
+      <!--merged image-->
+      <div class="send-icon-wrapper">
+        <img src="images/1_490.svg" alt="circle" class="send-icon-bg">
+        <img src="images/1_491.svg" alt="send icon" class="send-icon-plane">
+      </div>
+      <h3>Kliknij. Wybierz termin. Gotowe.</h3>
+      <p>Zapisz sie do newslettera i <span class="highlight-orange">OTRZYMAJ 5% ZNIŻKI</span> na pierwszą usługę!</p>
+      <form class="subscribe-form">
+        <div class="email-input-wrapper">
+          <img src="images/1_483.svg" alt="email icon">
+          <input type="email" placeholder="Twój email">
+        </div>
+        <button type="submit" class="btn btn-secondary">Subskrybuj</button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer id="section-footer" class="site-footer">
+  <div class="container">
+    <p>
+      <span class="footer-label">Kontakt:</span>
+      <a href="mailto:fixapp.contact@gmail.com" class="footer-email">fixapp.contact@gmail.com</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
