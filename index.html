@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Generated Page</title>
+		<title>FixApp</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FixApp Landing Page</title>
@@ -197,6 +197,9 @@
 				.subscribe-box {
 					margin-right: 0 !important;
 				}
+				.features-cards-container {
+					flex-direction: column;
+				}
 			}
 
 			/* CSS for section section:partners */
@@ -243,10 +246,10 @@
 					var(--bg-white) 100%
 				);
 				color: var(--bg-white);
-				padding: 50px 5px 0;
+				padding: 100px 5px;
 			}
 			.features-header {
-				max-width: 500px;
+				max-width: 600px;
 				margin-bottom: 60px;
 			}
 			.features-header h2 {
@@ -261,19 +264,11 @@
 				line-height: 1.5;
 				opacity: 0.9;
 			}
-			.many-pluses-img {
-				position: absolute;
-				top: 7%;
-				right: 2%;
-			}
-			.features-cards-container {
-				display: flex;
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 				gap: 30px;
-				margin-bottom: 7px;
-			}
-			.features-cards-container:first-child {
-				margin-left: 30%;
-				margin-bottom: 30px;
+				direction: rtl;
 			}
 			.feature-card {
 				background-color: var(--bg-white);
@@ -346,8 +341,8 @@
 				content: "";
 				position: absolute;
 				left: 31px;
-				top: -300px;
-				bottom: 80px;
+				top: 0;
+				bottom: 0;
 				width: 15px;
 				background-color: var(--primary-orange);
 				border-radius: 5px;
@@ -784,12 +779,7 @@
 				width: 100%;
 			}
 			.subscribe-form .btn {
-				padding: 20px 40px;
-			}
-			@media (max-width: 1200px) {
-				.many-pluses-img {
-					display: none;
-				}
+				padding: 22px 40px;
 			}
 			@media (max-width: 768px) {
 				.subscribe-section > .container > h2 {
@@ -877,11 +867,10 @@
 					<a href="#" class="logo">FixApp</a>
 					<nav class="main-nav">
 						<ul>
-							<li>
-								<a href="#szybko-bezpiecznie-id" class="active">Jak działa</a>
-							</li>
-							<li><a href="#to-ty-masz-kontrole-id">Dla klientów</a></li>
-							<li><a href="#kontakt-id">Kontakt</a></li>
+							<li><a href="#" class="active">Jak działa</a></li>
+							<li><a href="#">Dla klientów</a></li>
+							<li><a href="#">Dla fachowców</a></li>
+							<li><a href="#">Cennik</a></li>
 						</ul>
 					</nav>
 					<div class="header-actions">
@@ -948,72 +937,60 @@
 		</section>
 		<section id="section-features" class="features-section">
 			<div class="container">
-				<div id="szybko-bezpiecznie-id" class="features-header">
+				<div class="features-header">
 					<h2>Szybko, bezpiecznie, bez stresu.</h2>
 					<p>
 						FixApp to wygoda, której do tej pory brakowało na rynku usług
 						domowych.
 					</p>
 				</div>
-				<img
-					class="many-pluses-img"
-					src="./images/many-pluses.png"
-					width="225"
-				/>
 				<div class="features-grid">
-					<div class="features-cards-container">
-						<div class="feature-card">
-							<h3>
-								ZLECENIA W
-								<span class="highlight-orange">MNIEJ NIŻ 5 MINUT</span>
-							</h3>
-							<p>
-								W aplikacji, bez potrzeby rozmów telefonicznych czy spisywania
-								danych
-							</p>
-						</div>
-						<div class="feature-card">
-							<h3>
-								SPRAWDZENI FACHOWCY
-								<span class="highlight-orange">W TWOJEJ OKOLICY</span>
-							</h3>
-							<p>
-								Nasz system geo lokalizacji pokaże Ci dostępnych specjalistów w
-								promieniu kilku kilometrów, gotowych do działania
-							</p>
-						</div>
+					<div class="feature-card">
+						<h3>
+							ZLECENIA W <span class="highlight-orange">MNIEJ NIŻ 5 MINUT</span>
+						</h3>
+						<p>
+							W aplikacji, bez potrzeby rozmów telefonicznych czy spisywania
+							danych
+						</p>
 					</div>
-
-					<div class="features-cards-container">
-						<div class="feature-card">
-							<h3>
-								PRZEJRZYSTE CENY
-								<span class="highlight-orange">BEZ UKRYTYCH KOSZTÓW</span>
-							</h3>
-							<p>
-								Każda usługa ma jasno określony zakres i widełki cenowe, zanim
-								jeszcze klikniesz "Zamawiam".
-							</p>
-						</div>
-						<div class="feature-card">
-							<h3>
-								REZERWUJESZ <span class="highlight-orange">KIEDY CHCESZ</span>
-							</h3>
-							<p>
-								Integracja z kalendarzem pozwala wybrać termin, który naprawdę
-								Ci pasuje
-							</p>
-						</div>
-						<div class="feature-card">
-							<h3>
-								USŁUGI, KTÓRYM
-								<span class="highlight-orange">MOŻESZ ZAUFAĆ</span>
-							</h3>
-							<p>
-								Oceniani fachowcy i pełna historia zleceń to koniec
-								nieprzyjemnych niespodzianek.
-							</p>
-						</div>
+					<div class="feature-card">
+						<h3>
+							SPRAWDZENI FACHOWCY
+							<span class="highlight-orange">W TWOJEJ OKOLICY</span>
+						</h3>
+						<p>
+							Nasz system geo lokalizacji pokaże Ci dostępnych specjalistów w
+							promieniu kilku kilometrów, gotowych do działania
+						</p>
+					</div>
+					<div class="feature-card">
+						<h3>
+							PRZEJRZYSTE CENY
+							<span class="highlight-orange">BEZ UKRYTYCH KOSZTÓW</span>
+						</h3>
+						<p>
+							Każda usługa ma jasno określony zakres i widełki cenowe, zanim
+							jeszcze klikniesz "Zamawiam".
+						</p>
+					</div>
+					<div class="feature-card">
+						<h3>
+							REZERWUJESZ <span class="highlight-orange">KIEDY CHCESZ</span>
+						</h3>
+						<p>
+							Integracja z kalendarzem pozwala wybrać termin, który naprawdę Ci
+							pasuje
+						</p>
+					</div>
+					<div class="feature-card">
+						<h3>
+							USŁUGI, KTÓRYM <span class="highlight-orange">MOŻESZ ZAUFAĆ</span>
+						</h3>
+						<p>
+							Oceniani fachowcy i pełna historia zleceń to koniec nieprzyjemnych
+							niespodzianek.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -1119,7 +1096,7 @@
 			</div>
 		</section>
 		<section id="section-control" class="control-section">
-			<div id="to-ty-masz-kontrole-id" class="container">
+			<div class="container">
 				<h2>To Ty masz kontrolę</h2>
 				<p class="subtitle">
 					Zbudowaliśmy FixApp tak, byś miał kontrolę i bezpieczeństwo na każdym
@@ -1204,8 +1181,9 @@
 						<span class="highlight-orange">OTRZYMAJ 5% ZNIŻKI</span> na pierwszą
 						usługę!
 					</p>
-					<form id="kontakt-id" class="subscribe-form">
+					<form class="subscribe-form">
 						<div class="email-input-wrapper">
+							<img src="images/1_483.svg" alt="email icon" />
 							<input type="email" placeholder="Twój email" />
 						</div>
 						<button type="submit" class="btn btn-secondary">Subskrybuj</button>
