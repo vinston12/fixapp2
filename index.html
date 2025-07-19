@@ -3,9 +3,6 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Generated Page</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>FixApp Landing Page</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -274,6 +271,12 @@
 			.features-cards-container:first-child {
 				margin-left: 30%;
 				margin-bottom: 30px;
+			}
+			@media (max-width: 768px) {
+				.features-cards-container {
+					margin-left: 0 !important;
+					flex-direction: column;
+				}
 			}
 			.feature-card {
 				background-color: var(--bg-white);
