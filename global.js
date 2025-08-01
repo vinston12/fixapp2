@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'feature-2-desc': 'Our geolocation system will show you available specialists within a few kilometers, ready to work',
       'feature-3-title': 'TRANSPARENT PRICES WITHOUT HIDDEN COSTS',
       'feature-3-desc': 'Each service has a clearly defined scope and price range before you even click "Order".',
-      'feature-4-title': 'BOOK WHEN YOU WANT',
+      'feature-4-title': 'BOOK WHENEVER YOU WANT',
       'feature-4-desc': 'Calendar integration allows you to choose a time that really suits you',
       'feature-5-title': 'SERVICES YOU CAN TRUST',
       'feature-5-desc': 'Rated specialists and full order history mean no more unpleasant surprises.',
