@@ -29,6 +29,8 @@
 				background: rgba(255, 255, 255, 0.26);
 				backdrop-filter: blur(2px);
 				padding: 10px 0;
+				position: relative;
+				z-index: 100;
 			}
 			.header-container {
 				display: flex;
@@ -77,16 +79,96 @@
 				text-decoration: none;
 			}
 			.lang-selector {
+				position: relative;
 				display: flex;
 				align-items: center;
 				gap: 8px;
 				font-family: "Inter", sans-serif;
 				font-size: 17px;
 				font-weight: 500;
+				overflow: visible;
+			}
+			.lang-selector-btn {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				background: none;
+				border: none;
 				cursor: pointer;
+				font-family: "Inter", sans-serif;
+				font-size: 17px;
+				font-weight: 500;
+				color: var(--text-dark);
+				padding: 8px 12px;
+				border-radius: 6px;
+				transition: background-color 0.2s;
+			}
+			.lang-selector-btn:hover {
+				background-color: rgba(0, 0, 0, 0.05);
 			}
 			.lang-flag {
 				width: 28px;
+			}
+			.lang-arrow {
+				transition: transform 0.3s ease;
+			}
+			.lang-selector.active .lang-arrow {
+				transform: rotate(180deg);
+			}
+			.lang-dropdown {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				background: white;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				transition: all 0.3s ease;
+				z-index: 9999;
+				min-width: 120px;
+				margin-top: 5px;
+				pointer-events: auto;
+			}
+			.lang-selector.active .lang-dropdown {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+				pointer-events: auto;
+			}
+			.lang-dropdown {
+				pointer-events: none;
+			}
+			.lang-option {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				width: 100%;
+				padding: 12px 16px;
+				background: none;
+				border: none;
+				cursor: pointer;
+				font-family: "Inter", sans-serif;
+				font-size: 17px;
+				font-weight: 500;
+				color: var(--text-dark);
+				transition: background-color 0.2s;
+				text-align: left;
+			}
+			.lang-option:hover {
+				background-color: #f5f5f5;
+			}
+			.lang-option:first-child {
+				border-radius: 8px 8px 0 0;
+			}
+			.lang-option:last-child {
+				border-radius: 0 0 8px 8px;
+			}
+			.lang-option.active {
+				background-color: #e3f2fd;
+				color: var(--primary-blue);
 			}
 			.hero-content {
 				margin-top: 100px;
@@ -176,10 +258,14 @@
 			}
 			@media (max-width: 768px) {
 				.header-actions {
+					display: flex;
+					gap: 10px;
+				}
+				.btn-join {
 					display: none;
 				}
 				.header-container {
-					justify-content: center;
+					justify-content: space-between;
 				}
 				.hero-text h1 {
 					font-size: 36px;
@@ -881,26 +967,46 @@
 					<nav class="main-nav">
 						<ul>
 							<li>
-								<a href="#szybko-bezpiecznie-id" class="active">Jak działa</a>
+								<a href="#szybko-bezpiecznie-id" class="active" data-translate="nav-how-it-works">Jak działa</a>
 							</li>
-							<li><a href="#to-ty-masz-kontrole-id">Dla klientów</a></li>
-							<li><a href="#kontakt-id">Kontakt</a></li>
+							<li><a href="#to-ty-masz-kontrole-id" data-translate="nav-for-clients">Dla klientów</a></li>
+							<li><a href="#kontakt-id" data-translate="nav-contact">Kontakt</a></li>
 						</ul>
 					</nav>
 					<div class="header-actions">
-						<a href="#subscribe-box" class="btn-join">Dołącz za darmo</a>
+						<a href="#subscribe-box" class="btn-join" data-translate="btn-join-free">Dołącz za darmo</a>
 						<div class="lang-selector">
-							<img
-								src="images/1adf2e6dc9d4f089ffa812bc6fe121f072a348b0.png"
-								alt="Poland flag"
-								class="lang-flag"
-							/>
-							<span>PL</span>
-							<img
-								src="images/1_145.svg"
-								alt="Dropdown arrow"
-								class="lang-arrow"
-							/>
+							<button class="lang-selector-btn" id="langSelectorBtn">
+								<img
+									src="images/uk.svg"
+									alt="UK flag"
+									class="lang-flag"
+								/>
+								<span class="lang-text">EN</span>
+								<img
+									src="images/1_145.svg"
+									alt="Dropdown arrow"
+									class="lang-arrow"
+								/>
+							</button>
+							<div class="lang-dropdown" id="langDropdown">
+								<button class="lang-option" data-lang="pl">
+									<img
+										src="images/1adf2e6dc9d4f089ffa812bc6fe121f072a348b0.png"
+										alt="Poland flag"
+										class="lang-flag"
+									/>
+									<span>PL</span>
+								</button>
+								<button class="lang-option" data-lang="en">
+									<img
+										src="images/uk.svg"
+										alt="UK flag"
+										class="lang-flag"
+									/>
+									<span>EN</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -908,19 +1014,19 @@
 			<div class="hero-content">
 				<div class="container hero-container">
 					<div class="hero-text">
-						<span class="tagline">NIEZAWODNE USŁUGI LOKALNE.</span>
-						<h1>Zweryfikowani fachowcy. Bezpieczne płatności.</h1>
-						<p>
+						<span class="tagline" data-translate="hero-tagline">NIEZAWODNE USŁUGI LOKALNE.</span>
+						<h1 data-translate="hero-title">Zweryfikowani fachowcy. Bezpieczne płatności.</h1>
+						<p data-translate="hero-description">
 							Znajdź sprawdzonego specjalistę w 10 minut. Przeglądaj profile,
 							porównuj ceny i zamawiaj bezpośrednio przez aplikację. FixApp to
 							najprostszy sposób na szybką i bezpieczną naprawę – kiedy tylko
 							jej potrzebujesz.
 						</p>
 						<div class="hero-cta">
-							<a href="#subscribe-box" class="btn btn-primary"
+							<a href="#subscribe-box" class="btn btn-primary" data-translate="btn-find-specialist"
 								>Znajdź Fachowca</a
 							>
-							<a href="#" class="btn btn-secondary">Zostań Fachowcem</a>
+							<a href="#" class="btn btn-secondary" data-translate="btn-become-specialist">Zostań Fachowcem</a>
 						</div>
 					</div>
 					<div class="hero-image-wrapper">
@@ -936,7 +1042,7 @@
 		<section id="section-partners" class="partners-section">
 			<div class="container">
 				<div class="partners-divider"></div>
-				<p class="partners-title">Zaufali nam</p>
+				<p class="partners-title" data-translate="partners-title">Zaufali nam</p>
 				<div class="partners-logos">
 					<img
 						src="images/641244157e5ad75e854273d55b547cb3017f2880.png"
@@ -952,8 +1058,8 @@
 		<section id="section-features" class="features-section">
 			<div class="container">
 				<div id="szybko-bezpiecznie-id" class="features-header">
-					<h2>Szybko, bezpiecznie, bez stresu.</h2>
-					<p>
+					<h2 data-translate="features-title">Szybko, bezpiecznie, bez stresu.</h2>
+					<p data-translate="features-subtitle">
 						FixApp to wygoda, której do tej pory brakowało na rynku usług
 						domowych.
 					</p>
@@ -966,7 +1072,7 @@
 				<div class="features-grid">
 					<div class="features-cards-container">
 						<div class="feature-card">
-							<h3>
+							<h3 data-translate="feature-1-title">
 								ZLECENIA W
 								<span class="highlight-orange">MNIEJ NIŻ 5 MINUT</span>
 							</h3>
@@ -976,7 +1082,7 @@
 							</p>
 						</div>
 						<div class="feature-card">
-							<h3>
+							<h3 data-translate="feature-2-title">
 								SPRAWDZENI FACHOWCY
 								<span class="highlight-orange">W TWOJEJ OKOLICY</span>
 							</h3>
@@ -989,7 +1095,7 @@
 
 					<div class="features-cards-container">
 						<div class="feature-card">
-							<h3>
+							<h3 data-translate="feature-3-title">
 								PRZEJRZYSTE CENY
 								<span class="highlight-orange">BEZ UKRYTYCH KOSZTÓW</span>
 							</h3>
@@ -999,7 +1105,7 @@
 							</p>
 						</div>
 						<div class="feature-card">
-							<h3>
+							<h3 data-translate="feature-4-title">
 								REZERWUJESZ <span class="highlight-orange">KIEDY CHCESZ</span>
 							</h3>
 							<p>
@@ -1008,7 +1114,7 @@
 							</p>
 						</div>
 						<div class="feature-card">
-							<h3>
+							<h3 data-translate="feature-5-title"			>
 								USŁUGI, KTÓRYM
 								<span class="highlight-orange">MOŻESZ ZAUFAĆ</span>
 							</h3>
@@ -1024,8 +1130,8 @@
 		<section id="section-trust" class="trust-section">
 			<div class="container trust-container">
 				<div class="trust-text">
-					<h2><span class="highlight-blue">Zaufanie</span>, które działa.</h2>
-					<p>FixApp stawia na rzetelność i bezpieczeństwo</p>
+					<h2 data-translate="trust-title">Rozwiązanie, które działa.</h2>
+					<p data-translate="trust-subtitle">FixApp stawia na rzetelność i bezpieczeństwo</p>
 				</div>
 				<div class="trust-timeline">
 					<ul>
@@ -1034,8 +1140,8 @@
 								<img src="images/2708_11078.svg" alt="Verification icon" />
 							</div>
 							<div class="timeline-content">
-								<h3>Zweryfikowani fachowcy</h3>
-								<p>
+								<h3 data-translate="trust-item-1-title">Zweryfikowani fachowcy</h3>
+								<p data-translate="trust-item-1-desc">
 									Każdy wykonawca przechodzi proces weryfikacji tożsamości,
 									dokumentów oraz doświadczenia zawodowego.
 								</p>
@@ -1046,8 +1152,8 @@
 								<img src="images/2708_11605.svg" alt="Rating system icon" />
 							</div>
 							<div class="timeline-content">
-								<h3>System ocen po każdym zleceniu</h3>
-								<p>
+								<h3 data-translate="trust-item-2-title">System ocen po każdym zleceniu</h3>
+								<p data-translate="trust-item-2-desc">
 									Tylko fachowcy z wysokimi notami są wysoko w wynikach. Słabe
 									usługi? Nie mają tu racji bytu.
 								</p>
@@ -1058,8 +1164,8 @@
 								<img src="images/2708_13724.svg" alt="Transparency icon" />
 							</div>
 							<div class="timeline-content">
-								<h3>Transparentność to nasz standard</h3>
-								<p>
+								<h3 data-translate="trust-item-3-title">Transparentność to nasz standard</h3>
+								<p data-translate="trust-item-3-desc">
 									Żadnych ukrytych kosztów ani prowizji po cichu. Wszystko jest
 									jasne, zanim potwierdzisz usługę.
 								</p>
@@ -1070,8 +1176,8 @@
 								<img src="images/2708_13193.svg" alt="24/7 support icon" />
 							</div>
 							<div class="timeline-content">
-								<h3>Pomoc techniczna 24/7</h3>
-								<p>
+								<h3 data-translate="trust-item-4-title">Pomoc techniczna 24/7</h3>
+								<p data-translate="trust-item-4-desc">
 									Czat, infolinia i e-mail – jesteśmy dostępni, gdy tylko czegoś
 									potrzebujesz.
 								</p>
@@ -1084,7 +1190,7 @@
 		<section id="section-testimonials" class="testimonials-section">
 			<div class="container testimonials-container">
 				<div class="testimonials-text">
-					<h2>Ankietowani mówią sami za siebie.</h2>
+					<h2 data-translate="testimonials-title">Ankietowani mówią sami za siebie.</h2>
 					<img src="images/1_414.svg" alt="Decorative underline" />
 				</div>
 				<div class="testimonials-cards">
@@ -1094,24 +1200,23 @@
 							alt="Adam Kowalski"
 							class="author-image"
 						/>
-						<p class="quote">
+						<p class="quote" data-translate="testimonial-1-text">
 							"Brak prowizji na start mnie przekonał, u konkurencji płatna
 							subskrypcja to standard."
 						</p>
 						<div class="author">
-							<p class="author-name">Adam Kowalski</p>
-							<p class="author-location">Fachowiec</p>
+							<p class="author-name" data-translate="testimonial-1-author">Adam Kowalski</p>
+							<p class="author-location" data-translate="testimonial-1-role">Fachowiec</p>
 						</div>
 					</div>
 					<div class="testimonial-card card-front">
 						<img src="images/1_427.svg" alt="Mike Tyson" class="author-image" />
-						<p class="quote">
-							“Super pomysł, w zasadzie nie kojarzę żadnego miejsca gdzie mogę
-							zamowic rzetelnego fachowca.”
+						<p class="quote" data-translate="testimonial-2-text">
+							“Super pomysł, w zasadzie nie kojarzę żadnego miejsca gdzie mogę zamowic rzetelnego fachowca.”
 						</p>
 						<div class="author">
-							<p class="author-name">Karol Wierzbicki</p>
-							<p class="author-location">Użytkownik</p>
+							<p class="author-name" data-translate="testimonial-2-author">Karol Wierzbicki</p>
+							<p class="author-location" data-translate="testimonial-2-role">Użytkownik</p>
 						</div>
 					</div>
 					<div class="testimonial-arrows">
@@ -1123,72 +1228,51 @@
 		</section>
 		<section id="section-control" class="control-section">
 			<div id="to-ty-masz-kontrole-id" class="container">
-				<h2>To Ty masz kontrolę</h2>
-				<p class="subtitle">
-					Zbudowaliśmy FixApp tak, byś miał kontrolę i bezpieczeństwo na każdym
-					kroku.
-				</p>
+				<h2 data-translate="control-title">To Ty masz kontrolę</h2>
+				<p class="subtitle" data-translate="control-subtitle">Zbudowaliśmy FixApp tak, byś miał kontrolę i bezpieczeństwo na każdym kroku.</p>
 				<div class="control-list">
-					<div class="control-item">
-						Pracujemy jedynie z najlepszymi profesjonalistami.
-					</div>
-					<div class="control-item">
-						Masz możliwość zgłoszenia reklamacji w aplikacji.
-					</div>
-					<div class="control-item">
-						Masz wpływ na jakość usług – Twoja opinia nie trafia w próżnię.
-					</div>
+					<div class="control-item" data-translate="control-item-1">Pracujemy jedynie z najlepszymi profesjonalistami.</div>
+					<div class="control-item" data-translate="control-item-2">Masz możliwość zgłoszenia reklamacji w aplikacji.</div>
+					<div class="control-item" data-translate="control-item-3">Masz wpływ na jakość usług – Twoja opinia nie trafia w próżnię.</div>
 				</div>
 			</div>
 		</section>
 		<section id="section-availability" class="availability-section">
 			<div class="container">
 				<div class="availability-header">
-					<h2>
-						Potrzebujesz kogoś na dziś? <br /><span class="highlight-blue"
+					<h2 data-translate="availability-title">Potrzebujesz kogoś na dziś? <br /><span class="highlight-blue"
 							>Nie ma problemu.</span
 						>
 					</h2>
-					<p>
-						Z FixApp nie musisz planować napraw z wyprzedzeniemXD – nasi fachowcy
-						mają elastyczne grafiki i są gotowi działać, gdy tylko tego
-						potrzebujesz.
-					</p>
+					<p data-translate="availability-subtitle">Z FixApp nie musisz planować napraw z wyprzedzeniemXD – nasi fachowcy mają elastyczne grafiki i są gotowi działać, gdy tylko tego potrzebujesz.</p>
 				</div>
 				<div class="availability-grid">
 					<div class="availability-card">
 						<img src="images/2720_9392.svg" class="card-bg-icon" alt="" />
-						<h3>Termin nawet tego samego dnia</h3>
-						<p>
-							Dostępność w czasie rzeczywistym, również wieczorami i w weekendy.
-						</p>
+						<h3 data-translate="availability-item-1-title">Termin nawet tego samego dnia</h3>
+						<p data-translate="availability-item-1-desc">Dostępność w czasie rzeczywistym, również wieczorami i w weekendy.</p>
 					</div>
 					<div class="availability-card">
 						<img src="images/2725_10441.svg" class="card-bg-icon" alt="" />
-						<h3>Dopasuj wizytę do swojego planu</h3>
-						<p>
-							Ty wybierasz dzień i godzinę, a my znajdziemy wolnego fachowca.
-						</p>
+						<h3 data-translate="availability-item-2-title">Dopasuj wizytę do swojego planu</h3>
+						<p data-translate="availability-item-2-desc">Ty wybierasz dzień i godzinę, a my znajdziemy wolnego fachowca.</p>
 					</div>
 					<div class="availability-card">
 						<img src="images/2725_11494.svg" class="card-bg-icon" alt="" />
-						<h3>Najlepsi fachowcy znikają jako pierwsi</h3>
-						<p>Zrób to, zanim będzie za późno.</p>
+						<h3 data-translate="availability-item-3-title">Najlepsi fachowcy znikają jako pierwsi</h3>
+						<p data-translate="availability-item-3-desc">Zrób to, zanim będzie za późno.</p>
 					</div>
 					<div class="availability-card">
 						<img src="images/2725_12551.svg" class="card-bg-icon" alt="" />
-						<h3>Zniżka powitalna</h3>
-						<p>
-							Zostaw coś po sobie i skorzystaj z rabatu na pierwszą usługę.
-							Formularz gwarantujący zniżkę znajdziesz poniżej.
-						</p>
+						<h3 data-translate="availability-item-4-title">Zniżka powitalna</h3>
+						<p data-translate="availability-item-4-desc">Zostaw coś po sobie i skorzystaj z rabatu na pierwszą usługę. Formularz gwarantujący zniżkę znajdziesz poniżej.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section id="section-subscribe" class="subscribe-section">
 			<div class="container">
-				<h2>
+				<h2 data-translate="subscribe-title">
 					Samo się nie naprawi! <br />Zainstaluj FixApp i zrób to po swojemu.
 				</h2>
 				<div class="subscribe-box" id="subscribe-box">
@@ -1201,17 +1285,17 @@
 							class="send-icon-plane"
 						/>
 					</div>
-					<h3>Kliknij. Wybierz termin. Gotowe.</h3>
-					<p>
+					<h3 data-translate="subscribe-subtitle">Kliknij. Wybierz termin. Gotowe.</h3>
+					<p data-translate="subscribe-desc">
 						Zapisz sie do newslettera i
 						<span class="highlight-orange">OTRZYMAJ 5% ZNIŻKI</span> na pierwszą
 						usługę!
 					</p>
 					<form id="kontakt-id" class="subscribe-form">
 						<div class="email-input-wrapper">
-							<input type="email" placeholder="Twój email" />
+							<input type="email" placeholder="Twój email" data-translate-placeholder="subscribe-email-placeholder" />
 						</div>
-						<button type="submit" class="btn btn-secondary">Subskrybuj</button>
+						<button type="submit" class="btn btn-secondary" data-translate="subscribe-btn">Subskrybuj</button>
 					</form>
 				</div>
 			</div>
@@ -1219,9 +1303,9 @@
 		<footer id="section-footer" class="site-footer">
 			<div class="container">
 				<p>
-					<span class="footer-label">Kontakt:</span>
+					<span class="footer-label" data-translate="footer-contact">Kontakt:</span>
 					<a href="mailto:fixapp.contact@gmail.com" class="footer-email"
-						>fixapp.contact@gmail.com</a
+						data-translate="footer-email">fixapp.contact@gmail.com</a
 					>
 				</p>
 			</div>
