@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Hero section
       'hero-tagline': 'RELIABLE LOCAL SERVICES.',
       'hero-title': 'Verified specialists. Secure payments.',
-      'hero-description': 'Find a verified specialist in 10 minutes. Browse profiles, compare prices and order directly through the app. FixApp is the simplest way to get fast and safe repairs – whenever you need them.',
+      'hero-description': 'Find a verified specialist in 10 minutes. Browse profiles, compare prices, and order directly through the app. FixApp is the simplest way to get fast, safe repairs — whenever you need them.',
       'btn-find-specialist': 'Find Specialist',
       'btn-become-specialist': 'Become Specialist',
       
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'feature-3-title': 'TRANSPARENT PRICES WITHOUT HIDDEN COSTS',
       'feature-3-desc': 'Each service has a clearly defined scope and price range before you even click "Order".',
       'feature-4-title': 'BOOK WHENEVER YOU WANT',
-      'feature-4-desc': 'Calendar integration allows you to choose a time that really suits you',
+      'feature-4-desc': 'Calendar integration allows you to choose a time that truly suits you.',
       'feature-5-title': 'SERVICES YOU CAN TRUST',
       'feature-5-desc': 'Rated specialists and full order history mean no more unpleasant surprises.',
       
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'trust-item-1-title': 'Verified specialists',
       'trust-item-1-desc': 'Every contractor goes through identity verification, document verification and professional experience verification.',
       'trust-item-2-title': 'Rating system after each order',
-      'trust-item-2-desc': 'Only specialists with high ratings are high in results. Poor services? They have no place here.',
+      'trust-item-2-desc': 'Only specialists with high ratings deliver great results. Poor services? They have no place here.',
       'trust-item-3-title': 'Transparency is our standard',
       'trust-item-3-desc': 'No hidden costs or hidden commissions. Everything is clear before you confirm the service.',
       'trust-item-4-title': '24/7 technical support',
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'testimonial-1-text': '"No commission at the start convinced me, paid subscription is standard at the competition."',
       'testimonial-1-author': 'Adam Kowalski',
       'testimonial-1-role': 'Specialist',
-      'testimonial-2-text': '"Great idea, I basically don\'t know any place where I can order a reliable specialist."',
+      'testimonial-2-text': '"Great idea, I honestly don\’t know any place where I can order a reliable specialist."',
       'testimonial-2-author': 'Karol Wierzbicki',
       'testimonial-2-role': 'User',
       
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Availability section
       'availability-title': 'Need someone today? No problem.',
-      'availability-subtitle': 'With FixApp you don\'t have to plan repairs in advanceXD – our specialists have flexible schedules and are ready to work whenever you need them.',
+      'availability-subtitle': 'With FixApp you don\’t have to plan repairs in advance — our specialists have flexible schedules and are ready to work whenever you need them.',
       'availability-item-1-title': 'Same day appointment',
       'availability-item-1-desc': 'Real-time availability, including evenings and weekends.',
       'availability-item-2-title': 'Match the visit to your schedule',
