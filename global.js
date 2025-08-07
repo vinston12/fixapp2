@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Set initial active state - English is default
-  langOptions[1].classList.add('active');
-  changeLanguage('en'); // Set initial language to English
+  // Set initial active state - Polish is default
+  langOptions[0].classList.add('active');
+  changeLanguage('pl'); // Set initial language to Polish
 });
