@@ -1,4 +1,45 @@
-// There is currently no JavaScript code here.
+  const API_BASE = "https://wxhsdxfy88.execute-api.eu-west-2.amazonaws.com/prod";
+
+  const form = document.getElementById("kontakt-id");
+  const emailInput = document.getElementById("newsletter-email");
+  const msg = document.getElementById("subscribe-msg");
+  const honeypot = document.getElementById("company");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    msg.textContent = "";
+    msg.style.color = "";
+
+    // anty-bot
+    if (honeypot.value) return;
+
+    const email = (emailInput.value || "").trim().toLowerCase();
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+      msg.textContent = "Podaj poprawny adres e-mail.";
+      msg.style.color = "red";
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE}/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.message || "Błąd zapisu");
+
+      msg.textContent = data.message || "Sprawdź skrzynkę i potwierdź zapis.";
+      msg.style.color = "green";
+      emailInput.value = "";
+    } catch (err) {
+      msg.textContent = err.message || "Coś poszło nie tak.";
+      msg.style.color = "red";
+    }
+  });
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const cards = document.querySelectorAll('.testimonial-card');
   const upBtn = document.querySelector('.arrow-up');
